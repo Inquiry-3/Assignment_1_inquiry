@@ -345,11 +345,16 @@ hr.new2{
     margin-bottom: 35px;
 }
 .newsletter-module h1{
+    text-align: center;
     font-size: 3.5rem;
     color:#3e895b; 
 }
 .newsletter-module p{
     font-size: 2.5rem;
+    text-align: center;
+}
+.newsletter-module a{
+    text-align: center;
 }
 .button-green {
     background: #3e895b;
@@ -363,6 +368,12 @@ hr.new2{
     padding-bottom: 7px;
     min-width: 200px;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    border: var(--border)
 }
 .footer{
     background:#285a80;
