@@ -1,4 +1,5 @@
 /*  Author: Nguyen Ngoc Phuong Linh
+    Group: 1080 x 1920
     Created: 29/1/2024
     Last-modified: 29/1/2024
 */
@@ -86,17 +87,27 @@ nav ul li a::after{
 nav ul li a:hover::after{
     width: 100%;
 }
-
-#menubtn{
-    font-size: 2rem;
-    border-radius: .5rem;
-    background: #eee;
-    color: var(--pale-pink);
-    padding: 1rem 1.5rem;
-    cursor: pointer;
-    display: none;       /* only display in responsive mode */
-    transition: 0.5s;
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(24, 24, 103, 0.147);
+    backdrop-filter: blur(1rem);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+
 
 section{
     padding: 2rem 9%;
@@ -379,3 +390,176 @@ hr.new2{
     border-top: var(--border);
     color: white;
 }
+
+/* Responsive */
+/* Add the following rules for screens under 991px width */
+@media (max-width: 991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 2rem;
+    }
+    section{
+        padding: 2rem;
+    }
+}
+/* Add the following rules for screens under 768px width */
+@media (max-width: 768px){
+    #menubtn{
+        display: initial;
+    }
+    header .navbar{
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 2px solid var(--blue);
+    }
+    header .navbar a{
+        display: block;
+        font-size: 2.2rem;
+        margin: 0;
+        padding: 1.5rem 2rem;
+    }
+    .home{
+    flex-wrap: wrap-reverse;
+    }
+    .home .image img{
+        width: 50rem;
+        height: 45rem;
+    }
+}
+
+/* Add the following rules for screens under 400px width */
+@media (max-width: 450px){
+    body{
+        font-size: 1.2rem; /* Adjust the font size for smaller screens if needed */
+    }
+
+    header{
+        padding: 1rem; /* Adjust header padding for smaller screens */
+    }
+
+    section{
+        padding: 1rem; /* Adjust section padding for smaller screens */
+    }
+
+    .home .image img{
+        width: 100%; /* Make sure the image inside the home section is responsive */
+        height: auto;
+    }
+
+    .news .container .image img,
+    .about .wrapper .image img{
+        width: 100%; /* Make sure images in the news and about sections are responsive */
+        height: auto;
+    }
+
+    .footer .box-container{
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* Adjust the footer box container for smaller screens */
+    }
+
+    .footer .box-container h3,
+    .footer .box-container .box a{
+        font-size: 1.4rem; /* Adjust font size in the footer for smaller screens */
+    }
+}
+
+/* Add the following rules for screen under 245px  */
+@media (max-width: 250px){
+    header{
+        padding: 1rem;
+    }
+    header .logo {
+        font-size: 1.5rem;
+    }
+    nav ul li {
+        margin: 1rem;
+    }
+    .sidebar{
+        width: 100%;
+        align-items: center;
+    }
+    .box-container {
+        grid-template-columns: 1fr;
+    }
+    .box-container .box {
+        padding: 1rem;
+    }
+    .home .content, .home .image {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+    .home .content h3, .home .content h4, .home .content p {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    .home .content .btn {
+        font-size: 1.3rem;
+        padding: 0.3rem 0.7rem;
+    }
+    .about .wrapper .image img {
+        width: 100%;
+        height: auto;
+    }
+    .about .wrapper .content {
+        text-align: center;
+    }
+    .about .box-container {
+        grid-template-columns: 1fr;
+    }
+    .box-container .box {
+        padding: 1rem;
+    }
+    .box-container .box i {
+        font-size: 2rem;
+    }
+    .box-container .box h3 {
+        font-size: 1.5rem;
+    }
+    .box-container .box p {
+        font-size: 1rem;
+    }
+    .news .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .news .container .image img {
+        width: 100%;
+        height: auto;
+    }
+    .news .container .article-content {
+        text-align: center;
+    }
+    .news .container .article-content h3 {
+        font-size: 1.5rem;
+    }
+    .news .container .article-content p {
+        font-size: 1rem;
+    }
+    .newsletter-module h1 {
+        font-size: 2rem;
+    }
+    .newsletter-module p {
+        font-size: 1.5rem;
+    }
+    .button-green {
+        font-size: 1rem;
+        padding: 0.2rem 0.5rem;
+    }
+    .footer .box-container h3 {
+        font-size: 1.5rem;
+    }
+    .footer .box-container .box a {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+    }
+    .footer .bottom {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+
