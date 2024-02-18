@@ -10,272 +10,336 @@
     padding: 0;
     box-sizing: border-box;
     outline: none; border: none;
-    text-transform: capitalize;
+    text-transform: none;
     text-decoration: none;
     transition: all .3s ease;
-}
-
-/*general color, border configuration for website */
-:root{
-    --pale-pink: #006abc;
-    --dark-pink: #002473;
-    --black: --black;
-    --box-shadow: .5rem .5rem 0 rgba(0,0,133, .2);
-    --border: .2rem solid var(--pale-pink);
+    scroll-behavior: smooth;
 }
 html{
     font-size: 62.5%;
     overflow-x: hidden;
     scroll-padding-top: 7rem;
     scroll-behavior: smooth;
+    background-color: white;
 }
-header{
+/*general color, border configuration for website */
+:root{
+    --light-blue: #006abc;
+    --dark-blue: #002473;
+    --sky-blue: #2691e3;
+    --black: --black;
+    --box-shadow: .5rem .5rem 0 rgba(0,0,133, .2);
+    --border: .2rem solid var(--light-blue);
+}
+.header-logo img{
+    padding-left: 20px;
+    width: 100px; height: 70px;
+    cursor: pointer;
+}
+.home{
+    background-color: #E4E4E4;
+}
+.header-main{
+    background-color: #E4E4E4;
+    z-index: 1;
+}
+.header-main .content h3 {
+    font-size: calc(4em + 30px); /* Increase font-size by 30px */
+}
+.background {
     position: fixed;
-    padding: 2rem 9%;
-    top: 0; left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E4E4E4;
+    z-index: -1; /* Change z-index to -1 to place it behind other elements */
+}
+
+header {
+    position: fixed;
+    padding: 5px 10px;
+    top: 0;
+    left: 0;
     right: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #fff;
-    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
     z-index: 1000;
+    background-color: rgb(228, 228, 228); /* Change background color to gray */
 }
-header .logo{
-    font-size: 2.8rem;
-    color: var(--dark-pink);
-    transition: 0.5s;
-}
-header .logo i{
-    color: var(--pale-pink);
-}
-header .logo:hover{
-    letter-spacing: 1.5rem;
-}
-header .nav{
-    font-size: 1.7rem;
-    color: var(--black);
-    margin-left: 2rem;
-}
-nav{
+
+nav {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-} 
+}
+
+nav ul{
+    padding-right: 10px;
+}
+nav ul{
+    list-style: none;
+    width: 100%;
+    text-align: right;
+    padding: 40px;
+}
 nav ul li{
     display: inline-block;
-    list-style: none;
-    margin: 3rem 2rem;
-    font-size: 1.5rem;
-    
+    margin: 10px 20px;
 }
 nav ul li a{
-    color: var(--lilac);
+    color: black;
+    font-size: 16px;
     position: relative;
 }
-nav ul li a::after{
+/* utilise pseudo selector to add text animation */
+nav ul li a::after {
     content: '';
     width: 0;
     height: 3px;
-    background: var(--dark-pink);
+    background: var(--light-blue);
     position: absolute;
     left: 0;
     bottom: -6px;
-    transition: 0.5s;
-}
-nav ul li a:hover::after{
-    width: 100%;
-}
-.sidebar{
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 250px;
-    z-index: 999;
-    background-color: rgba(24, 24, 103, 0.147);
-    backdrop-filter: blur(1rem);
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.sidebar li{
-    width: 100%;
-}
-.sidebar a{
-    width: 100%;
+    transition: width 0.3s ease; /* Add transition for smooth effect */
 }
 
-
-section{
-    padding: 2rem 9%;
+nav ul li a:hover::after {
+    width: 100%; /* Expand the width to create the underline effect */
 }
-.home{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding-top: 10rem;
+section {
+    text-align: left;
+    padding: 50px; /* Adjust padding as needed */
+    font-size: 3em; /* Adjust font size as needed */
+    color: white; /* Default text color */
 }
-.home .content{
-    flex: 1 1 45rem;
+section h3{
+    float:left;
+    font-size: 4em;
+    color: black;
 }
-.home .image{
-    flex: 1 1 45rem;
+section h3:hover{
+    letter-spacing: .4rem;
 }
-.home .image img{
-    width: 100%;
-}
-.home .content h3{
-    font-size: 4rem;
-    color: var(--dark-pink);
-    line-height: 1.8;
-    padding: 1rem 0;
-    font-style: italic;
-}
-.home .content h4{
-    font-size: 3.5rem;
-    color: var(--dark-pink);
-    line-height: 1.5;
-    padding: 1rem 0;
-    font-style: italic;
-}
-.home .content p{
-    font-size: 1.7rem;
-    color: var(--blue);
-    line-height: 1.8;
-    padding: 1rem 0;
+section p{
+    padding-top: 300px;
+    padding-left: 350px;
+    color: black;
+    font-size: 0.5em;
 }
 .btn{
-    display: inline-block;
-    margin-top: 1rem;
-    padding: .5rem;
-    padding-left: 1rem;
-    font-size: 1.7rem;
+    position: absolute;
+    top: 490px;
+    left: 55px; 
+    border-radius: 10px;
+    background-color: var(--light-blue);
     color: white;
-    background-color: #002473 ;
-    font-style: bold;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    transition: color 0.4s linear;
+    padding: 8px;
+    font-size: 30px;
+
 }
 .btn:hover{
     color: #002473;
     background-color: #93c2e6f5;
 }
 
+/* create 2 semi-circles at the bottom right of the page in which the white circles lies inside the gray one */
+.semi-circle{
+    position: fixed;
+    bottom: 0;
+    right: -10px;
+    width: 510px;
+    height: 255px;
+    border-top-left-radius: 255px;
+    border-top-right-radius: 255px;
+    border: 1px solid rgb(255, 255, 255);
 
-.heading{
-    text-align: center;
-    padding-bottom: 2rem;
-    text-transform: uppercase;
-    color: var(--black);
-    font-size: 3rem;
-    letter-spacing: .4rem;
 }
-.heading span{
-    text-transform: uppercase;
-    color: var(--dark-pink);
-}
-.about .sub-title{
-    font-size: 3rem;
-    cursor: pointer;
-    padding: 0.7rem 1rem;
-    transition: color 0.4s linear;
-    position: relative;
-    display: inline-block;
-}
-hr.new1 {
-    border-top: 1px solid rgb(29, 29, 161);
-    width: 80%;
-    margin: 0 auto; /*center the blue line */
+.gray, .white {
+    position: absolute; /* Position the semi-circles absolutely */
+    bottom: 0;
+    right: -10px;
+    width: 510px;
+    height: 255px;
+    border-top-left-radius: 255px;
+    border-top-right-radius: 255px;
+    background-color: inherit;
 }
 
-/* hover effect for the sub-title */
-.about .sub-title:hover{
-    color: rgb(255, 253, 253);
+.white {
+    right: 22px; /* Adjust position for the white semi-circle */
+    width: 433.5px; /* Adjust width for the white semi-circle */
+    height: 230px; /* Adjust height for the white semi-circle */
+    z-index: 1; /* Set a higher z-index to ensure it's above the gray semi-circle */
+    background-color: #ede6e6;
 }
-.about .sub-title::before{
-    content:'';
+
+.image-container {
+    position: absolute; /* Position the image container absolutely */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Make the container width 100% */
+    height: 100%; /* Make the container height 100% */
+    overflow: visible; /* Hide overflow of the image */
+    z-index: 2; /* Set a higher z-index to ensure it's above the semi-circles */
+}
+
+.image-container img {
+    width: 100%; /* Make the image width fit the container */
+    height: auto; /* Allow the image height to adjust proportionally */
+    display: block; /* Ensure the image is displayed as a block element */
+}
+
+/*Banner styling */
+
+.banner {
     position: absolute;
+    top: calc(100% + 5px); /* Position it below the home section with a margin of 5px */
     left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
-    background: rgb(8, 15, 85);
-    z-index: -1;
-    transform-origin: 0 0;/* Set the transform-origin to top-left */
-    transform: scaleX(0); /* Initially set the width to 0 */
-    transition: transform 0.5s; /* Apply transition to transform property */
-    border-radius: 1rem;
+    background-color: var(--light-blue);
+    padding: 15px 0; /* Adjust padding as needed */
+    text-align: center; /* Center text horizontally */
+    padding: 15px 0 ; /* Adjust padding as needed */
+    border-radius: 8px;
+    margin-bottom: 50px;
 }
-.sub-title:hover::before{
-    transform: scaleX(1); /* Expand the width on hover */
+
+.banner .slogan {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
 }
-/* neatly wrap the text content with the image */
+
+.banner h5 {
+    font-size: 1em; /* Optionally, adjust the font size */
+    margin: 0 50px; /* Add margin to separate the slogans */
+    font-weight: 300;
+}
+.banner h5:hover{
+    letter-spacing: 1rem;
+}
+
+/* About us section styling */
+section{
+    padding: 2rem 9%;
+}
+.about{
+    margin-top: 240px;
+    background-color: white;
+}
+
+.about .image{
+    margin-bottom: 0;
+}
+.about h3 {
+    margin-bottom: 10px; /* Add margin at the bottom to separate it from the paragraph */
+    color: var(--dark-blue); /* Change the color of the heading */
+    font-size: 2.5rem; /* Adjust the font size */
+    font-weight: 700; /* Add font weight for emphasis */
+    text-decoration: underline; /* Add underline effect */
+}
+
 .about .wrapper{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2rem;
+    gap: 20px; /* Increase the gap between the elements */
 }
 .about .wrapper .image{
     flex: 1 1 45rem;
 }
 .about .wrapper .image img{
-    width: 100%;
+    padding-top: 30px; padding-right: 20px;
+    width: 110%;
     height: 350px;
     object-fit: cover;
-    border: var(--border);
 }
 .about .wrapper .content{
     flex: 1 1 45rem;
 }
-.about .wrapper .content h3{
-    color: var(--dark-pink);
-    font-size: 3rem;
-    line-height: 1.8;
-    font-family: cursive;
-
-}
-.about .wrapper .content p{
-    color: var(--light);
-    font-size: 2rem;
-    line-height: 1.8;
+.about .wrapper .content p {
+    margin-top: 0; /* Remove the top margin */
+    color: black;
+    font-size: 1.8rem; /* Decrease the font size */
+    line-height: 1.5; /* Adjust line height for better readability */
     padding: 1rem 0;
+    font-family: 'Times New Roman', Times, serif;
 }
-.about .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-    gap: 2rem;
+
+.about .wrapper .image {
+    flex: 1 1 100%; /* Set the image to take full width */
+    max-width: 350px; /* Set a maximum width for the image */
+    margin-right: 20px; /* Add some space between the image and the paragraph */
+    /* border: 1px solid white; */
 }
-.about .box-container .box{
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    border: var(--border);
-    padding: 2rem;
-    transition: transform 0.5s;
+.about .wrapper .content .btn {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-top: 20px; /* Adjust the margin as needed */
+    margin-left: 20px; /* Adjust the margin as needed */
 }
-.about .box-container .box:hover{
-    transform: scale(1.1);
+
+/* styling for "our expertise"   */
+.ept{
+    background-color: white;
 }
-.about .box-container .box i{
-    color: var(--dark-pink);
-    font-size: 3.5rem;
+.ept h2{
+    text-align: center;
+    font-weight: 300;
+    color: black;
+    font-size: 40px;
+    font-family: sans-serif;
+    padding-bottom: 20px;
+;
 }
-.about .box-container .box h3{
-    color: var(--lilac);
-    font-size: 2.3rem;
-}
-.about .box-container .box p{
-    font-size: 1.5rem;
-}
-.box img{
+.Container{
     width: 100%;
-    border-radius: 10px;
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 20px;
+    padding-bottom: 20px;
+}
+/* Style the rectangle boxes */
+.rectangle {
+    flex: 1 0 48%; /* Adjust the width of the boxes to leave some space between them */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    height: calc(100% - 30px); /* Decrease the height by 30px */
+}
+.ept h4{
+    margin-top: 50px; margin-right: 15px;
+    color: black;
+    text-align: right;
+    font-weight: 200;
+    font-size: 2rem;
+    font-family: sans-serif;
+}
+/* Align the images to the left and set their max width to 100% */
+.rectangle img {
+    max-width: 50%;
+    height: auto;
+}
+
+/* Adjust the layout to accommodate the images */
+.Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/* styling for the news section  */
+.news{
+    background-color: var(--light-blue);
+}
+.news .hr{
+    border-top: 1px solid white;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .news .container{
     display: flex;
@@ -283,38 +347,103 @@ hr.new1 {
     align-items: center;
     gap: 2rem;
 }
+
 .news .container .image{
-    flex: 1 1 45rem;
+    flex: 1 1 ;
 }
 .news .container .image img{
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
+    padding-bottom: 20px;
 
+}
+.news .article-content .btn2{
+    font-size: 10px;
 }
 .news .container .article-content{
     flex: 1 1 45rem;
 }
 .news .container .article-content h3{
-    color:#002473;
+    color:#f3f4f6;
     font-size: 2.8rem;
     line-height: 1.8;
+    
 }
 .news .container .article-content p{
-    color: var(--dark-pink);
+    color: rgb(233, 229, 229);
     font-size: 1.5rem;
     line-height: 1.8;
     padding: 1rem 0; 
 }
 .news .container .article-content a{
     text-decoration: underline;
+    font-size: 15px;
+    color: #E4E4E4;
 }
-hr.new2{
-    border-top: 1px solid rgb(29, 29, 161);
-    width: 100%;
-    margin: 0 auto; /*center the blue line */
+/* Our main focus */
+/* Target the second ".about" section */
+
+.main-goal .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+    gap: 2rem;
+    margin-top: 20px; /* Adjust margin-top to create space between the news section and the "Our main goal" section */
 }
-/*----contact us section-----*/
+
+.main-goal .box-container .box {
+    background: #f3f3f3;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    padding: 1rem;
+    transition: transform 0.5s;
+    max-height: 400px; /* Set a maximum height for the boxes */
+    overflow: hidden; /* Hide overflow content */
+    display: flex; /* Use flexbox to align content vertically */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Space items evenly */
+}
+.main-goal .box-container .box:hover{
+    transform: scale(1.1);
+}
+.main-goal .sub-title {
+    font-size: 4rem; /* Adjust the font size as needed */
+    color: var(--dark-blue);
+    font-weight: 400;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.main-goal .box-container .box h2 {
+    font-size: 1.5rem; /* Adjust the font size of the heading */
+    color: var(--dark-blue); /* Correct the property name to color */
+    margin-bottom: 10px; /* Add margin at the bottom of headings */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.main-goal .box-container .box p {
+    font-size: 1.5rem;
+    color: var(--dark-blue);
+    line-height: 1.5;
+    padding: 0 2rem; /* Adjust padding as needed */
+    margin-top: 1rem; /* Add margin at the top */
+}
+
+.main-goal .box-container .box img {
+    width: 90%;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 1rem; /* Add margin below the image */
+    align-self: center; /* Align the image vertically to the center */
+    justify-self: center; /* Align the image orizontally to the center */
+}
+.box img{
+    border-radius: 5px;
+    display: block;
+}
+
 .location{
     width: 80%;
     margin: auto;
@@ -323,60 +452,15 @@ hr.new2{
 .location iframe{
     width: 100%;
 }
-.receive-info .wrapper{
-    background: #d2e6f5;
-}
-.receive-info .wrapper form{
-    width: auto;
-}
-.receive-info .wrapper form .box{
-    align-items: center;
-    padding-right: 1rem;
-    border: 1px solid darkblue;
-}
-.receive-info .wrapper form  h3{
-    font-size: 2rem;
-    color: rgb(7, 7, 50);
-}
-.newsletter-module{
-    background: #dbd9d8;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-bottom: 35px;
-}
-.newsletter-module h1{
+.location h2{
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 5px;
+    color: var(--dark-blue);
     text-align: center;
-    font-size: 3.5rem;
-    color:#3e895b; 
-}
-.newsletter-module p{
-    font-size: 2.5rem;
-    text-align: center;
-}
-.newsletter-module a{
-    text-align: center;
-}
-.button-green {
-    background: #3e895b;
-    font-family: oscine,sans-serif;
-    font-weight: 700;
-    text-transform: initial;
-    font-size: 1.1875rem;
-    padding-left: 43px;
-    padding-right: 43px;
-    padding-top: 10px;
-    padding-bottom: 7px;
-    min-width: 200px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    border: var(--border)
+
 }
 .footer{
-    background:#285a80;
+    background: var(--light-blue);
 }
 .footer .box-container{
     display: grid;
@@ -403,174 +487,9 @@ hr.new2{
 }
 
 /* Responsive */
-/* Add the following rules for screens under 991px width */
+/* Styles applied for screens under px width */
 @media (max-width: 991px){
     html{
         font-size: 55%;
     }
-    header{
-        padding: 2rem;
-    }
-    section{
-        padding: 2rem;
-    }
 }
-/* Add the following rules for screens under 768px width */
-@media (max-width: 768px){
-    #menubtn{
-        display: initial;
-    }
-    header .navbar{
-        position: absolute;
-        top: 99%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border-bottom: 2px solid var(--blue);
-    }
-    header .navbar a{
-        display: block;
-        font-size: 2.2rem;
-        margin: 0;
-        padding: 1.5rem 2rem;
-    }
-    .home{
-    flex-wrap: wrap-reverse;
-    }
-    .home .image img{
-        width: 50rem;
-        height: 45rem;
-    }
-}
-
-/* Add the following rules for screens under 400px width */
-@media (max-width: 450px){
-    body{
-        font-size: 1.2rem; /* Adjust the font size for smaller screens if needed */
-    }
-
-    header{
-        padding: 1rem; /* Adjust header padding for smaller screens */
-    }
-
-    section{
-        padding: 1rem; /* Adjust section padding for smaller screens */
-    }
-
-    .home .image img{
-        width: 100%; /* Make sure the image inside the home section is responsive */
-        height: auto;
-    }
-
-    .news .container .image img,
-    .about .wrapper .image img{
-        width: 100%; /* Make sure images in the news and about sections are responsive */
-        height: auto;
-    }
-
-    .footer .box-container{
-        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* Adjust the footer box container for smaller screens */
-    }
-
-    .footer .box-container h3,
-    .footer .box-container .box a{
-        font-size: 1.4rem; /* Adjust font size in the footer for smaller screens */
-    }
-}
-
-/* Add the following rules for screen under 245px  */
-@media (max-width: 250px){
-    header{
-        padding: 1rem;
-    }
-    header .logo {
-        font-size: 1.5rem;
-    }
-    nav ul li {
-        margin: 1rem;
-    }
-    .sidebar{
-        width: 100%;
-        align-items: center;
-    }
-    .box-container {
-        grid-template-columns: 1fr;
-    }
-    .box-container .box {
-        padding: 1rem;
-    }
-    .home .content, .home .image {
-        flex: 1 1 100%;
-        text-align: center;
-    }
-    .home .content h3, .home .content h4, .home .content p {
-        font-size: 1.5rem;
-        margin: 1rem 0;
-    }
-    .home .content .btn {
-        font-size: 1.3rem;
-        padding: 0.3rem 0.7rem;
-    }
-    .about .wrapper .image img {
-        width: 100%;
-        height: auto;
-    }
-    .about .wrapper .content {
-        text-align: center;
-    }
-    .about .box-container {
-        grid-template-columns: 1fr;
-    }
-    .box-container .box {
-        padding: 1rem;
-    }
-    .box-container .box i {
-        font-size: 2rem;
-    }
-    .box-container .box h3 {
-        font-size: 1.5rem;
-    }
-    .box-container .box p {
-        font-size: 1rem;
-    }
-    .news .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .news .container .image img {
-        width: 100%;
-        height: auto;
-    }
-    .news .container .article-content {
-        text-align: center;
-    }
-    .news .container .article-content h3 {
-        font-size: 1.5rem;
-    }
-    .news .container .article-content p {
-        font-size: 1rem;
-    }
-    .newsletter-module h1 {
-        font-size: 2rem;
-    }
-    .newsletter-module p {
-        font-size: 1.5rem;
-    }
-    .button-green {
-        font-size: 1rem;
-        padding: 0.2rem 0.5rem;
-    }
-    .footer .box-container h3 {
-        font-size: 1.5rem;
-    }
-    .footer .box-container .box a {
-        font-size: 1rem;
-        padding: 0.5rem 0;
-    }
-    .footer .bottom {
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
-}
-
-
