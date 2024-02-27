@@ -1,0 +1,232 @@
+
+*{
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-transform: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 10000px){
+
+section {
+    text-align: left;
+    padding: 50px; /* Adjust padding as needed */
+    font-size: 1.5vw; /* Adjust font size as needed */
+    color: white; /* Default text color */
+    padding: 2rem 9%;
+}
+
+:root{
+    --light-blue: #006abc;
+    --dark-blue: #002473;
+    --sky-blue: #2691e3;
+    --black: --black;
+    --box-shadow: .5rem .5rem 0 rgba(0,0,133, .2);
+    --border: .2rem solid var(--light-blue);
+}
+
+.header-logo img{
+    position: relative;
+    display: block;
+    margin-left: 2vw;
+    width: 5vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.home{
+    position: relative;
+    right: 7vw;
+    height: 40vw;
+    width: 118%;
+    margin-bottom: 1%;
+    border-radius: 10pt;
+    background-color: #EBEBEB;
+    overflow: hidden;
+}
+.header-main{
+    background-color: white;
+    z-index: 1;
+}
+.header-main .content h3 {
+    line-height: 105%;
+    position: relative;
+    left: 3%;
+    margin-top: -2%;
+    font-size: 605%;
+    font-weight: 545;
+    color: #202020;
+
+}
+
+header {
+    height: 4vw;
+    position: fixed;
+    padding: 1.3rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background-color: #EBEBEB; /* Change background color to gray */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    position: relative;
+    left: 30px;
+    bottom: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+nav .ul{
+    list-style: none;
+    width: 100%;
+    text-align: right;
+}
+
+nav .ul a{
+    margin: 2% 2%;
+    color: black;
+    font-size: 80%;
+    position: relative;
+    right: 2%;
+    font-weight: 600;
+}
+/* utilise pseudo selector to add text animation */
+nav .ul a::after {
+    content: '';
+    width: 0;
+    height: 10%;
+    background: var(--light-blue);
+    position: absolute;
+    left: 0;
+    bottom: -30%;
+    transition: width 0.3s ease; /* Add transition for smooth effect */
+}
+
+nav .ul a:hover::after {
+    width: 100%; /* Expand the width to create the underline effect */
+}
+
+
+.icons{
+    font-size: 200%;
+    color: #202020;
+    cursor: pointer;
+}
+
+#check{
+    display: none;
+}
+
+#close-icon{
+    display: none;
+}
+
+#menu-icon{
+    display: none;
+}
+}
+
+@media (max-width: 1024px){
+
+    .main-goal .box-container .box h2 {
+        left: 7.4% !important;
+    }
+
+    .icons{
+        display: inline-flex;
+        position: relative;
+        top: 12%;
+        left: 27.5%;
+        cursor: pointer;
+    }
+
+    #menu-icon{
+        display: block;
+        position: relative;
+        top: 300%;
+        left: 520%;
+        z-index: 1;
+    }
+
+    #close-icon{
+        position: relative;
+        top: 100%;
+        left: 520%;
+        z-index: 1;
+    }
+
+
+    #check:checked~.icons #menu-icon{
+       display: none;
+    }
+
+    #check:checked~.icons #close-icon{
+        display: block;
+     }
+
+    .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: (135deg, rgba(255, 255, 255, 255), rgba(255, 255, 255, 0));
+        backdrop-filter: blur(30px);
+        transition: 0.3s ease;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    #check:checked~.navbar{
+        height: 500%;
+    }
+
+    .navbar .ul a{
+        display: block;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-50px);
+        transition: .3s ease;
+        margin-bottom: 3%;
+    }
+
+    #check:checked~.navbar a{
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.1s * var(--i));
+    }
+
+    nav .ul a::after {
+        left: 48%;
+    }
+    
+    nav .ul a:hover::after {
+        width: 4%; /* Expand the width to create the underline effect */
+    }
+
+
+    .main-goal .box-container {
+        gap: 2.05%;
+    }
+}
+
+@media (max-width: 480px){
+    .navbar .ul a{
+        font-size: 130%;
+        margin-bottom: 4%;
+    }
+
+}
